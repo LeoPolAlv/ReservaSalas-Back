@@ -1103,3 +1103,73 @@ Fix this pattern in your application or switch to the legacy parser implementati
 2023-10-25T15:55:39.849+01:00  INFO 31324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2023-10-25T15:55:39.853+01:00  INFO 31324 --- [restartedMain] c.e.r.ReservasalasApplication            : Started ReservasalasApplication in 0.958 seconds (process running for 1137.878)
 2023-10-25T15:55:39.854+01:00  INFO 31324 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-10-25T15:55:52.657+01:00  INFO 31324 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2023-10-25T15:55:52.667+01:00  INFO 31324 --- [Thread-51] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-25T15:55:52.671+01:00  INFO 31324 --- [Thread-51] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T15:55:52.671+01:00  INFO 31324 --- [Thread-51] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2023-10-25T15:55:52.674+01:00  INFO 31324 --- [Thread-51] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2023-10-25T15:55:52.736+01:00  INFO 31324 --- [restartedMain] c.e.r.ReservasalasApplication            : Starting ReservasalasApplication using Java 17.0.8.1 with PID 31324 (C:\Users\A101753\OneDrive - ATOS\Proyectos formativos\Desarrollos Formativos\reserva_salas\reservasalas\target\classes started by A101753 in C:\Users\A101753\OneDrive - ATOS\Proyectos formativos\Desarrollos Formativos\reserva_salas\reservasalas)
+2023-10-25T15:55:52.736+01:00  INFO 31324 --- [restartedMain] c.e.r.ReservasalasApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-10-25T15:55:52.907+01:00  INFO 31324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-25T15:55:52.948+01:00  INFO 31324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 5 JPA repository interfaces.
+2023-10-25T15:55:53.001+01:00  INFO 31324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-25T15:55:53.002+01:00  INFO 31324 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-25T15:55:53.002+01:00  INFO 31324 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-25T15:55:53.015+01:00  INFO 31324 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-25T15:55:53.015+01:00  INFO 31324 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 278 ms
+2023-10-25T15:55:53.040+01:00  INFO 31324 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-25T15:55:53.045+01:00  INFO 31324 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-25T15:55:53.045+01:00  INFO 31324 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-25T15:55:53.047+01:00  INFO 31324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2023-10-25T15:55:53.103+01:00  INFO 31324 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-14 - Added connection org.postgresql.jdbc.PgConnection@53fa99a9
+2023-10-25T15:55:53.103+01:00  INFO 31324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2023-10-25T15:55:53.139+01:00  INFO 31324 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-25T15:55:53.182+01:00  INFO 31324 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-25T15:55:53.267+01:00  INFO 31324 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T15:55:53.465+01:00  WARN 31324 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-25T15:55:53.542+01:00  INFO 31324 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-10-25T15:55:53.554+01:00  INFO 31324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-25T15:55:53.558+01:00  INFO 31324 --- [restartedMain] c.e.r.ReservasalasApplication            : Started ReservasalasApplication in 0.836 seconds (process running for 1151.583)
+2023-10-25T15:55:53.559+01:00  INFO 31324 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-10-25T15:56:00.601+01:00  INFO 31324 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-25T15:56:00.601+01:00  INFO 31324 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-25T15:56:00.602+01:00  INFO 31324 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-25T15:56:00.612+01:00  WARN 31324 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "303e"]
+2023-10-25T15:56:22.685+01:00  INFO 31324 --- [http-nio-8080-exec-4] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estamos actualizando los datos de una oficina. Datos que llegan: 
+2023-10-25T15:56:22.685+01:00  INFO 31324 --- [http-nio-8080-exec-4] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Email: 
+2023-10-25T15:56:22.686+01:00  INFO 31324 --- [http-nio-8080-exec-4] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Password: 
+2023-10-25T15:56:22.686+01:00  INFO 31324 --- [http-nio-8080-exec-4] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Rol: 
+2023-10-25T15:56:22.686+01:00  INFO 31324 --- [http-nio-8080-exec-4] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Activar Usuario? : true
+2023-10-25T15:56:22.687+01:00  INFO 31324 --- [http-nio-8080-exec-4] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estado: false
+2023-10-25T15:56:22.690+01:00 DEBUG 31324 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select u1_0.id,u1_0.das_user,u1_0.email,u1_0.estado_user,u1_0.password,u1_0.rol,u2_0.id,u2_0.cod_postal,u2_0.direccion,u2_0.latitud,u2_0.localidad,u2_0.longitud,u2_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,u2_0.provincia,u2_0.reg_version,u1_0.reg_version from usuario u1_0 left join oficinas u2_0 on u2_0.id=u1_0.fk_oficina left join pais p1_0 on p1_0.id=u2_0.fk_pais where u1_0.id=?
+2023-10-25T15:56:22.699+01:00  WARN 31324 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.eviden.reservasalas.excepciones.exceptions.DataNotFoundException: El usuario 3039 no se encuentra regsitrado en el sistema]
+2023-10-25T15:56:30.520+01:00  INFO 31324 --- [http-nio-8080-exec-6] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estamos actualizando los datos de una oficina. Datos que llegan: 
+2023-10-25T15:56:30.520+01:00  INFO 31324 --- [http-nio-8080-exec-6] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Email: 
+2023-10-25T15:56:30.521+01:00  INFO 31324 --- [http-nio-8080-exec-6] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Password: 
+2023-10-25T15:56:30.521+01:00  INFO 31324 --- [http-nio-8080-exec-6] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Rol: 
+2023-10-25T15:56:30.521+01:00  INFO 31324 --- [http-nio-8080-exec-6] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Activar Usuario? : true
+2023-10-25T15:56:30.521+01:00  INFO 31324 --- [http-nio-8080-exec-6] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estado: false
+2023-10-25T15:56:30.522+01:00 DEBUG 31324 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select u1_0.id,u1_0.das_user,u1_0.email,u1_0.estado_user,u1_0.password,u1_0.rol,u2_0.id,u2_0.cod_postal,u2_0.direccion,u2_0.latitud,u2_0.localidad,u2_0.longitud,u2_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,u2_0.provincia,u2_0.reg_version,u1_0.reg_version from usuario u1_0 left join oficinas u2_0 on u2_0.id=u1_0.fk_oficina left join pais p1_0 on p1_0.id=u2_0.fk_pais where u1_0.id=?
+2023-10-25T15:56:30.539+01:00 DEBUG 31324 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : update usuario set das_user=?,email=?,estado_user=?,password=?,rol=?,fk_oficina=?,reg_version=? where id=? and reg_version=?
+2023-10-25T15:57:18.344+01:00  INFO 31324 --- [http-nio-8080-exec-7] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estamos actualizando los datos de una oficina. Datos que llegan: 
+2023-10-25T15:57:18.345+01:00  INFO 31324 --- [http-nio-8080-exec-7] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Email: A00009@eviden.com...
+2023-10-25T15:57:18.345+01:00  INFO 31324 --- [http-nio-8080-exec-7] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Password: 123654
+2023-10-25T15:57:18.345+01:00  INFO 31324 --- [http-nio-8080-exec-7] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Rol: 
+2023-10-25T15:57:18.345+01:00  INFO 31324 --- [http-nio-8080-exec-7] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Activar Usuario? : false
+2023-10-25T15:57:18.346+01:00  INFO 31324 --- [http-nio-8080-exec-7] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estado: true
+2023-10-25T15:57:18.347+01:00 DEBUG 31324 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : select u1_0.id,u1_0.das_user,u1_0.email,u1_0.estado_user,u1_0.password,u1_0.rol,u2_0.id,u2_0.cod_postal,u2_0.direccion,u2_0.latitud,u2_0.localidad,u2_0.longitud,u2_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,u2_0.provincia,u2_0.reg_version,u1_0.reg_version from usuario u1_0 left join oficinas u2_0 on u2_0.id=u1_0.fk_oficina left join pais p1_0 on p1_0.id=u2_0.fk_pais where u1_0.id=?
+2023-10-25T15:57:18.350+01:00 DEBUG 31324 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : update usuario set das_user=?,email=?,estado_user=?,password=?,rol=?,fk_oficina=?,reg_version=? where id=? and reg_version=?
+2023-10-25T15:57:45.275+01:00  INFO 31324 --- [http-nio-8080-exec-9] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estamos actualizando los datos de una oficina. Datos que llegan: 
+2023-10-25T15:57:45.276+01:00  INFO 31324 --- [http-nio-8080-exec-9] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Email: A00009@eviden.com
+2023-10-25T15:57:45.276+01:00  INFO 31324 --- [http-nio-8080-exec-9] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Password: 
+2023-10-25T15:57:45.276+01:00  INFO 31324 --- [http-nio-8080-exec-9] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Rol: 
+2023-10-25T15:57:45.276+01:00  INFO 31324 --- [http-nio-8080-exec-9] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Activar Usuario? : true
+2023-10-25T15:57:45.276+01:00  INFO 31324 --- [http-nio-8080-exec-9] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estado: true
+2023-10-25T15:57:45.277+01:00 DEBUG 31324 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select u1_0.id,u1_0.das_user,u1_0.email,u1_0.estado_user,u1_0.password,u1_0.rol,u2_0.id,u2_0.cod_postal,u2_0.direccion,u2_0.latitud,u2_0.localidad,u2_0.longitud,u2_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,u2_0.provincia,u2_0.reg_version,u1_0.reg_version from usuario u1_0 left join oficinas u2_0 on u2_0.id=u1_0.fk_oficina left join pais p1_0 on p1_0.id=u2_0.fk_pais where u1_0.id=?
+2023-10-25T15:57:45.280+01:00 DEBUG 31324 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : update usuario set das_user=?,email=?,estado_user=?,password=?,rol=?,fk_oficina=?,reg_version=? where id=? and reg_version=?
+2023-10-25T15:58:09.954+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-10-25T15:58:09.969+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-25T15:58:09.969+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-25T15:58:09.974+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T15:58:09.975+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
+2023-10-25T15:58:09.977+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
