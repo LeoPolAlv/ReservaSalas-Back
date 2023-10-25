@@ -1173,3 +1173,74 @@ Fix this pattern in your application or switch to the legacy parser implementati
 2023-10-25T15:58:09.974+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-25T15:58:09.975+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
 2023-10-25T15:58:09.977+01:00  INFO 31324 --- [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
+2023-10-25T16:26:29.117+01:00  INFO 31264 --- [restartedMain] c.e.r.ReservasalasApplication            : Starting ReservasalasApplication using Java 17.0.8.1 with PID 31264 (C:\Users\A101753\OneDrive - ATOS\Proyectos formativos\Desarrollos Formativos\reserva_salas\reservasalas\target\classes started by A101753 in C:\Users\A101753\OneDrive - ATOS\Proyectos formativos\Desarrollos Formativos\reserva_salas\reservasalas)
+2023-10-25T16:26:29.120+01:00  INFO 31264 --- [restartedMain] c.e.r.ReservasalasApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-10-25T16:26:29.195+01:00  INFO 31264 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-25T16:26:29.196+01:00  INFO 31264 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-25T16:26:30.903+01:00  INFO 31264 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-25T16:26:31.033+01:00  INFO 31264 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 5 JPA repository interfaces.
+2023-10-25T16:26:31.757+01:00  INFO 31264 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-25T16:26:31.774+01:00  INFO 31264 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-25T16:26:31.775+01:00  INFO 31264 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-25T16:26:31.884+01:00  INFO 31264 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-25T16:26:31.885+01:00  INFO 31264 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2688 ms
+2023-10-25T16:26:32.091+01:00  INFO 31264 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-25T16:26:32.167+01:00  INFO 31264 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-25T16:26:32.171+01:00  INFO 31264 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-25T16:26:32.316+01:00  INFO 31264 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-25T16:26:32.450+01:00  INFO 31264 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-25T16:26:32.469+01:00  INFO 31264 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-25T16:26:32.696+01:00  INFO 31264 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7310839f
+2023-10-25T16:26:32.698+01:00  INFO 31264 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-25T16:26:33.044+01:00  INFO 31264 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-25T16:26:33.818+01:00  INFO 31264 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-25T16:26:33.985+01:00  INFO 31264 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T16:26:34.422+01:00  INFO 31264 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-25T16:26:34.696+01:00  WARN 31264 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-25T16:26:34.996+01:00  INFO 31264 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-10-25T16:26:35.042+01:00  INFO 31264 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-25T16:26:35.053+01:00  INFO 31264 --- [restartedMain] c.e.r.ReservasalasApplication            : Started ReservasalasApplication in 6.515 seconds (process running for 7.562)
+2023-10-25T16:26:48.499+01:00  INFO 31264 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-25T16:26:48.499+01:00  INFO 31264 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-25T16:26:48.501+01:00  INFO 31264 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-10-25T16:26:48.546+01:00  INFO 31264 --- [http-nio-8080-exec-2] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Estamos buscando el total de Usuarios en BBDD
+2023-10-25T16:26:48.672+01:00 DEBUG 31264 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select u1_0.id,u1_0.das_user,u1_0.email,u1_0.estado_user,u1_0.password,u1_0.rol,u1_0.fk_oficina,u1_0.reg_version from usuario u1_0
+2023-10-25T16:26:48.697+01:00 DEBUG 31264 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select o1_0.id,o1_0.cod_postal,o1_0.direccion,o1_0.latitud,o1_0.localidad,o1_0.longitud,o1_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,o1_0.provincia,o1_0.reg_version from oficinas o1_0 left join pais p1_0 on p1_0.id=o1_0.fk_pais where o1_0.id=?
+2023-10-25T16:26:48.713+01:00 DEBUG 31264 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select o1_0.id,o1_0.cod_postal,o1_0.direccion,o1_0.latitud,o1_0.localidad,o1_0.longitud,o1_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,o1_0.provincia,o1_0.reg_version from oficinas o1_0 left join pais p1_0 on p1_0.id=o1_0.fk_pais where o1_0.id=?
+2023-10-25T16:26:48.717+01:00 DEBUG 31264 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select o1_0.id,o1_0.cod_postal,o1_0.direccion,o1_0.latitud,o1_0.localidad,o1_0.longitud,o1_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,o1_0.provincia,o1_0.reg_version from oficinas o1_0 left join pais p1_0 on p1_0.id=o1_0.fk_pais where o1_0.id=?
+2023-10-25T16:26:48.719+01:00 DEBUG 31264 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select o1_0.id,o1_0.cod_postal,o1_0.direccion,o1_0.latitud,o1_0.localidad,o1_0.longitud,o1_0.nombre_oficina,p1_0.id,p1_0.nombre,p1_0.reg_version,o1_0.provincia,o1_0.reg_version from oficinas o1_0 left join pais p1_0 on p1_0.id=o1_0.fk_pais where o1_0.id=?
+2023-10-25T16:26:48.743+01:00  INFO 31264 --- [http-nio-8080-exec-2] c.e.r.m.controlador.UsuarioController    : **[RESERVAS]--- Lista de Usuarios: 10
+2023-10-25T16:28:10.152+01:00  INFO 31264 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 63 class path changes (0 additions, 63 deletions, 0 modifications)
+2023-10-25T16:28:10.169+01:00  INFO 31264 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-25T16:28:10.170+01:00  INFO 31264 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-25T16:28:10.178+01:00  INFO 31264 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T16:28:10.181+01:00  INFO 31264 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-25T16:28:10.193+01:00  INFO 31264 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-25T16:28:15.296+01:00  INFO 31264 --- [restartedMain] c.e.r.ReservasalasApplication            : Starting ReservasalasApplication using Java 17.0.8.1 with PID 31264 (C:\Users\A101753\OneDrive - ATOS\Proyectos formativos\Desarrollos Formativos\reserva_salas\reservasalas\target\classes started by A101753 in C:\Users\A101753\OneDrive - ATOS\Proyectos formativos\Desarrollos Formativos\reserva_salas\reservasalas)
+2023-10-25T16:28:15.297+01:00  INFO 31264 --- [restartedMain] c.e.r.ReservasalasApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-10-25T16:28:15.467+01:00  INFO 31264 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-25T16:28:15.468+01:00  INFO 31264 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2023-10-25T16:28:15.553+01:00  INFO 31264 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-25T16:28:15.555+01:00  INFO 31264 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-25T16:28:15.556+01:00  INFO 31264 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-25T16:28:15.581+01:00  INFO 31264 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-10-25T16:28:15.582+01:00  INFO 31264 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 283 ms
+2023-10-25T16:28:15.625+01:00  INFO 31264 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-25T16:28:15.632+01:00  INFO 31264 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-25T16:28:15.633+01:00  INFO 31264 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-25T16:28:15.634+01:00  INFO 31264 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-10-25T16:28:15.712+01:00  INFO 31264 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@61894bae
+2023-10-25T16:28:15.712+01:00  INFO 31264 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-10-25T16:28:15.727+01:00  INFO 31264 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-25T16:28:15.736+01:00  INFO 31264 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-25T16:28:15.737+01:00  INFO 31264 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T16:28:15.764+01:00  WARN 31264 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-25T16:28:15.911+01:00  INFO 31264 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-10-25T16:28:15.925+01:00  INFO 31264 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-25T16:28:15.930+01:00  INFO 31264 --- [restartedMain] c.e.r.ReservasalasApplication            : Started ReservasalasApplication in 0.663 seconds (process running for 108.438)
+2023-10-25T16:28:15.932+01:00  INFO 31264 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-10-25T16:28:57.554+01:00  INFO 31264 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-10-25T16:28:57.571+01:00  INFO 31264 --- [RMI TCP Connection(7)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-25T16:28:57.576+01:00  INFO 31264 --- [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25T16:28:57.577+01:00  INFO 31264 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-10-25T16:28:57.585+01:00  INFO 31264 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
