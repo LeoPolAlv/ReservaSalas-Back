@@ -16,5 +16,7 @@ public interface IUsuarioService {
 	public Optional<Usuario> buscoEmailUsuario(String eMail);
 	
 	public List<Usuario> todosUsuarios();
+	
+	public Optional<Usuario> buscoUserById(Long id);
 
 }

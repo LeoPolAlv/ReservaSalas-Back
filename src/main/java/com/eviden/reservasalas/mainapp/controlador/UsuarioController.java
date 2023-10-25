@@ -1,8 +1,6 @@
 package com.eviden.reservasalas.mainapp.controlador;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -12,17 +10,21 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.eviden.reservasalas.excepciones.exceptions.BadRequestException;
 import com.eviden.reservasalas.excepciones.exceptions.DataNotFoundException;
+import com.eviden.reservasalas.mainapp.DTO.UsuarioReqPut;
 import com.eviden.reservasalas.mainapp.DTO.UsuarioRequest;
 import com.eviden.reservasalas.mainapp.modelo.entity.Oficina;
 import com.eviden.reservasalas.mainapp.modelo.entity.Usuario;
 import com.eviden.reservasalas.mainapp.servicios.IOficinaService;
 import com.eviden.reservasalas.mainapp.servicios.IUsuarioService;
 
+import jakarta.validation.Valid;
 import lombok.extern.log4j.*;
 
 
@@ -55,9 +57,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping(path = "/new")
-	public ResponseEntity<?> nuevoUsuario(@RequestBody UsuarioRequest usuario) {
-		Map<String, Object> mensajeEnv = new HashMap<>();
-		
+	public ResponseEntity<?> nuevoUsuario(@Valid @RequestBody UsuarioRequest usuario) {
 		log.info("**[RESERVAS]--- Estamos insertando un nuevo usuario");
 		log.info("**[RESERVAS]--- Usuario: " + usuario.toString());
 		
@@ -77,26 +77,29 @@ public class UsuarioController {
 					.reserves(null)
 					.build();
 			
-			return new ResponseEntity<>(usuarioService.hagoUsuario(usuarioAux), HttpStatus.OK);
+			return new ResponseEntity<>(usuarioService.hagoUsuario(usuarioAux), HttpStatus.CREATED);
 			
-		} catch (DataAccessException e) {
-			String[] mensaje = e.getMessage().split("ERROR: ");
-			log.info("**[RESERVAS]--- Error crear al insertar el usuario en BBDD: " + e );
-			mensajeEnv.put("code","U-003");
-			mensajeEnv.put("mensaje", mensaje[1]);
-			return new ResponseEntity <Map<String,Object>>(mensajeEnv,HttpStatus.BAD_REQUEST);
+		} catch(DataAccessException e) {
+			throw  new BadRequestException("U-003",e.getMessage());
 		}
 	}
 	
-	@DeleteMapping(path = "/delete/{dasUser}")
-	public void borroUsuario(@PathVariable("dasUser") String dasUser ) {
+	@DeleteMapping(path = "/delete/{dasuser}")
+	public ResponseEntity<?> borroUsuario(@PathVariable("dasuser") String dasUser ) {
 		log.info("**[RESERVAS]--- Estamos dando de baja un usuario");
 		log.info("**[RESERVAS]--- Usuario: " + dasUser);
+	
+		try {
+			Usuario usuarioAux = usuarioService.buscoDasUsuario(dasUser)
+					.orElseThrow(() -> new DataNotFoundException("U-004", "El usuario: " + dasUser + " no se encuentra en la BBDD" ));
+			 
+			usuarioService.borroUsuario(usuarioAux);
+			
+			return new ResponseEntity<String>("OK",HttpStatus.OK);
 		
-		Usuario usuarioAux = usuarioService.buscoDasUsuario(dasUser)
-				.orElseThrow(() -> new DataNotFoundException("U-004", "El usuario: " + dasUser + " no se encuentra en la BBDD" ));
-		
-		usuarioService.borroUsuario(usuarioAux);
+		}catch(DataAccessException e) {
+			throw  new BadRequestException("U-008",e.getMessage());
+		}
 	}
 	
 	@GetMapping(path="/findU/{dasUser}")
@@ -120,7 +123,41 @@ public class UsuarioController {
 				.orElseThrow(() -> new DataNotFoundException("U-006", "El Email: " + email + " no se encuentra en la BBDD" ));
 		
 		return new ResponseEntity<>(usuarioAux, HttpStatus.OK);
+	}
+	
+	@PutMapping(path = "/update/{idusuario}")
+	public ResponseEntity<?> Actualizoreserva(@PathVariable("idusuario") Long idUsuario, @RequestBody UsuarioReqPut usuarioReqPut){
+		log.info("**[RESERVAS]--- Estamos actualizando los datos de una oficina. Datos que llegan: ");
+		log.info("**[RESERVAS]--- Email: " + usuarioReqPut.getEmail());
+		log.info("**[RESERVAS]--- Password: " + usuarioReqPut.getPassword());
+		log.info("**[RESERVAS]--- Rol: " + usuarioReqPut.getRol());
+		log.info("**[RESERVAS]--- Activar Usuario? : " + usuarioReqPut.isCambioEstado());
+		log.info("**[RESERVAS]--- Estado: " + usuarioReqPut.isEstadoUser());
 		
+		try {
+			Usuario usuarioAux = usuarioService.buscoUserById(idUsuario)
+					             .orElseThrow(() -> new DataNotFoundException("U-007","El usuario " + idUsuario + " no se encuentra regsitrado en el sistema"));
+			
+			if(!usuarioReqPut.getEmail().equals("")) {
+				usuarioAux.setEmail(usuarioReqPut.getEmail());
+			}
+			
+			if(!usuarioReqPut.getPassword().equals("")) {
+				usuarioAux.setPassword(usuarioReqPut.getPassword());
+			}
+			
+			if(!usuarioReqPut.getRol().equals("")) {
+				usuarioAux.setRol(usuarioReqPut.getRol());
+			}
+			//Si el campo activarUser es true significa que vamos a cambiar el estado del usuario 
+			if(usuarioReqPut.isCambioEstado()) {
+				usuarioAux.setEstadoUser(usuarioReqPut.isEstadoUser());
+			}
+			return new ResponseEntity<Usuario>(usuarioService.hagoUsuario(usuarioAux),HttpStatus.CREATED) ;
+		
+		} catch(DataAccessException e) {
+			throw  new BadRequestException("U-007",e.getMessage());
+		}
 	}
 	
 }

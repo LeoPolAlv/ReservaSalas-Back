@@ -53,4 +53,10 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		return usuarioDAO.findAll();
 	}
 
+	@Override
+	public Optional<Usuario> buscoUserById(Long id) {
+		
+		return usuarioDAO.findById(id);
+	}
+
 }

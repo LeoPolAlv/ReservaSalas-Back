@@ -1,30 +1,33 @@
 package com.eviden.reservasalas.mainapp.DTO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class UsuarioRequest {
 	
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty(value = "das-user")
 	private String dasUser;
 
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
+	@Email
 	private String email;
 
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String password;
 
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String rol;
 
-	@NonNull
+	@NotNull(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty(value = "id-oficina")
 	private Long idOficina;
-
-	/*public Long getIdOficina() {
-		// TODO Auto-generated method stub
-		return idOficina;
-	}*/
 }

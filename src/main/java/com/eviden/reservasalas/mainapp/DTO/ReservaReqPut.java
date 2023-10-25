@@ -13,11 +13,11 @@ import lombok.Setter;
 @Builder
 public class ReservaReqPut {
 	
-	@JsonProperty
+	@JsonProperty(value = "fecha-reserva")
 	private Date fechaReserva;
 	
 	//Fecha cuando finaliza la reserva.
-	@JsonProperty
+	@JsonProperty(value = "fecha-hasta")
 	private Date fechaHasta;
 	
 	@JsonProperty

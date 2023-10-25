@@ -1,9 +1,11 @@
 package com.eviden.reservasalas.mainapp.DTO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -12,30 +14,39 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OficinaRequest {
 	
-	@NonNull
+	//@NotNull(message = "Falta este campo")
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty(value = "nombre-oficina")
 	private String nombreOficina;
 	
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String direccion;
 	
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String localidad;
 	
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty(value = "cod-postal")
 	private String codPostal;
 	
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String provincia;
 	
 	//Coordenas de la ubicacion de la oficina
 	// ---- Longitud
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String longitud;
 	
 	//---- Latitud
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty
 	private String latitud;	
 	
-	@NonNull
+	@NotEmpty(message = "Debe ir informado, no puede ser NULL")
+	@JsonProperty(value = "nombre-pais")
 	private String nombrePais;
 }

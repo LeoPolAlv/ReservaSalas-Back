@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eviden.reservasalas.excepciones.exceptions.ClaveDuplicadaException;
+import com.eviden.reservasalas.excepciones.exceptions.BadRequestException;
 import com.eviden.reservasalas.excepciones.exceptions.DataNotFoundException;
 import com.eviden.reservasalas.excepciones.exceptions.DatosEntradaException;
 import com.eviden.reservasalas.mainapp.DTO.SalaRequest;
@@ -29,6 +29,7 @@ import com.eviden.reservasalas.mainapp.modelo.entity.Sala;
 import com.eviden.reservasalas.mainapp.servicios.IOficinaService;
 import com.eviden.reservasalas.mainapp.servicios.ISalaService;
 
+import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
@@ -85,16 +86,14 @@ public class SalaController {
 	}
 	
 	@PostMapping(path = "/new")
-	public ResponseEntity<?> crearSala(@RequestBody SalaRequest nuevaSala) {
+	public ResponseEntity<?> crearSala(@Valid @RequestBody SalaRequest nuevaSala) {
 		log.info("**[RESERVAS]--- Estamos Insertando una nueva sala");
-		
-		Map<String, Object> mensajeEnv = new HashMap<>();
 		
 		//Validamos que la sala no exita en BBDD
 		Optional<Sala> findSala = salaService.buscoSalaNombre(nuevaSala.getNombreSala());
 		
 		if(!findSala.isEmpty()) {
-			 throw new ClaveDuplicadaException("S-006","Ya existe una sala con ese nombre");
+			 throw new BadRequestException("S-006","Ya existe una sala con ese nombre");
 		}
 		
 		try {
@@ -117,40 +116,29 @@ public class SalaController {
 			log.info("**[RESERVAS]--- Vamos a insertar esta sala: " + returnObj.toString());
 			
 			//Persisitimos en BBDD 
-			return new ResponseEntity<>(salaService.hagoSala(salaAux),HttpStatus.OK); 
+			return new ResponseEntity<>(salaService.hagoSala(salaAux),HttpStatus.CREATED); 
 			
-		}catch (Exception e) {
-			//String[] mensaje = e.getMessage().split("ERROR: ");
-			System.out.println("Catch de error nueva sala");
-			log.info("**[RESERVAS]--- Error crear al insertar una nueva Sala en BBDD: " + e.getCause() );
-			mensajeEnv.put("code","S-003");
-			mensajeEnv.put("mensaje", e.getMessage());
-			return new ResponseEntity <Map<String,Object>>(mensajeEnv,HttpStatus.BAD_REQUEST);
+		}catch (DataAccessException e) {
+			throw  new BadRequestException("S-003",e.getMessage());
 		}
 	}
 	
-	@DeleteMapping(path = "/delete/{id}")
-	public ResponseEntity<?> borroSala(@PathVariable("id") Long id){
+	@DeleteMapping(path = "/delete/{idsala}")
+	public ResponseEntity<?> borroSala(@PathVariable("idsala") Long id){
 		log.info("**[RESERVAS]--- Vamos a borrar una sala ");
-		
-		Map<String, Object> mensajeEnv = new HashMap<>();
 		
 		try {
 			Sala salaAux = salaService.buscoSaldaId(id)
-					.orElseThrow(() -> new DataNotFoundException("S-004", "No se encuentra ninguna Oficina con este ID: " + id));
+					.orElseThrow(() -> new DataNotFoundException("S-004", "No se encuentra ninguna sala con este ID: " + id));
 			
 			log.info("**[RESERVAS]--- Sala a borrar: " + salaAux.getNombreSala() + " de la oficina: " + salaAux.getSalaOficina().getNombreOficina());
 			
 			//Borramos de BBDD la sala que se nos solicita
 			salaService.borroSala(salaAux);
 			//Devolvemos un OK si todo fue bien
-			return new ResponseEntity<String>("Sala borrada correctamente", HttpStatus.OK);  
-		}catch(DataAccessException e){
-			String[] mensaje = e.getMessage().split("ERROR: ");
-			log.info("**[RESERVAS]--- Error en el borrado de la sala: " + e );
-			mensajeEnv.put("code","S-005");
-			mensajeEnv.put("mensaje", mensaje[1]);
-			return new ResponseEntity <Map<String,Object>>(mensajeEnv,HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("Sala borrada correctamente", HttpStatus.CREATED);  
+		}catch (DataAccessException e) {
+			throw  new BadRequestException("S-005",e.getMessage());
 		}
 	}
 	/*
@@ -159,28 +147,31 @@ public class SalaController {
 	 *  	- Nombre sala
 	 *  	- Capacidad
 	 */
-	@PutMapping(path = "/update")
-	public ResponseEntity<?> actualizoSala(@RequestBody SalaRequestPut salaUpdate) {
-		log.info("**[RESERVAS]--- Estamos actualizando la sala con ID: " + salaUpdate.getIdSala());
+	@PutMapping(path = "/update/{idsala}")
+	public ResponseEntity<?> actualizoSala(@PathVariable("idsala") Long idSala, @RequestBody SalaRequestPut salaUpdate) {
+		log.info("**[RESERVAS]--- Estamos actualizando la sala con ID: " + idSala);
 		log.info("**[RESERVAS]--- Estamos actualizando la sala: " + salaUpdate.getNombreSala());
 		log.info("**[RESERVAS]--- Estamos actualizando la sala con capacidad: " + salaUpdate.getCapacidad());
 		
-		Map<String, Object> mensajeEnv = new HashMap<>();
-		
-		//Validamos que la sala exista en BBDD
-		if(salaUpdate.getIdSala() == null) {
-			throw new DatosEntradaException("S-011","Id de la sala NO viene informada");
-		}
-		
 		try {
-			//Persisitimos en BBDD 
-			return new ResponseEntity<>(salaService.actualizoSala(salaUpdate.getNombreSala(), salaUpdate.getCapacidad(), salaUpdate.getIdSala()),HttpStatus.OK); 
 			
-		}catch (Exception e) {
-			log.info("**[RESERVAS]--- Error crear al actualizar una Sala en BBDD: " + e );
-			mensajeEnv.put("code","S-010");
-			mensajeEnv.put("mensaje", e.getMessage());
-			return new ResponseEntity <Map<String,Object>>(mensajeEnv,HttpStatus.BAD_REQUEST);
+			//Validamos que la sala exista en BBDD
+			Sala salaAux = salaService.buscoSaldaId(idSala)
+						.orElseThrow(() -> new DataNotFoundException("S-011", "Esta sala " + idSala + "No esta registrada en el sistema"));
+		
+			if(!salaUpdate.getNombreSala().equals("") && !salaUpdate.getNombreSala().equals(null)) {
+				salaAux.setNombreSala(salaUpdate.getNombreSala());
+			}
+			
+			if(!salaUpdate.getCapacidad().equals(0) && !salaUpdate.getCapacidad().equals(null)) {
+				salaAux.setCapacidad(salaUpdate.getCapacidad());
+			}
+			
+			//Persisitimos en BBDD 
+			return new ResponseEntity<>(salaService.hagoSala(salaAux),HttpStatus.CREATED); 
+			
+		}catch (DataAccessException e) {
+			throw  new BadRequestException("S-010",e.getMessage());
 		}
 	}
 }

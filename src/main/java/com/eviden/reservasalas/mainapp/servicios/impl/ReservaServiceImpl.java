@@ -18,14 +18,14 @@ public class ReservaServiceImpl implements IReservaService {
 	IReservasDAO reservaDao;
 	
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Reserva> allReservas() {
 		
 		return reservaDao.findAll();
 	}
 	
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public Optional<Reserva> buscoReserva(long id) {
 		
 		return reservaDao.findByIdreserve(id);
@@ -40,11 +40,14 @@ public class ReservaServiceImpl implements IReservaService {
 
 	@Override
 	@Transactional
-	public void BorroReserva(Long idreserva) {
+	public void BorroReserva(Reserva reserva) {
 		
-		reservaDao.deleteById(idreserva);
+		reservaDao.delete(reserva);
 	}
 
-	
-
+	@Override
+	public boolean existeReserva(Long id) {
+		
+		return reservaDao.existsById(id);
+	}
 }

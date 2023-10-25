@@ -4,10 +4,10 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -17,28 +17,28 @@ import lombok.Setter;
 public class ReservaRequest {
 
 	//Fecha de la reserva
-	@JsonProperty
-	@NonNull
+	@JsonProperty(value = "fecha_reserva")
+	@NotEmpty(message = "No debe traer valor nulo")
 	private Date fechaReserva;
 	
 	//Fecha cuando finaliza la reserva.
-	@NonNull
-	@JsonProperty
+	@NotEmpty(message = "No debe traer valor nulo")
+	@JsonProperty(value = "fecha_hasta")
 	private Date fechaHasta;
 	
-	@NonNull
+	@NotEmpty(message = "No debe traer valos nulo")
 	@JsonProperty
 	private String titulo;
 	
-	@NonNull
+	@NotEmpty(message = "No debe traer valos nulo")
 	@JsonProperty
 	private String descripcion;
 	
-	@NonNull
-	@JsonProperty
+	@NotEmpty(message = "No debe traer valos nulo")
+	@JsonProperty(value = "das_user")
 	private String dasUser;
 	
-	@NonNull
-	@JsonProperty
+	@NotEmpty(message = "No debe traer valos nulo")
+	@JsonProperty(value = "id_sala")
 	private Long idSala;
 }

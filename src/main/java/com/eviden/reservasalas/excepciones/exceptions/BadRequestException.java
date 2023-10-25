@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClaveDuplicadaException extends RuntimeException{
+public class BadRequestException extends RuntimeException{
 
 	private String code;
 	
-	public ClaveDuplicadaException(String code, String message) {
+	public BadRequestException(String code,String message) {
 		super(message);
 		this.code = code;
 	}

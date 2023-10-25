@@ -13,8 +13,8 @@ public interface IReservaService {
 	
 	public Reserva generoReserva(Reserva newReserva);
 	
-	public void BorroReserva (Long idreserva);
+	public void BorroReserva (Reserva reserva);
 	
-	
+	public boolean existeReserva(Long id);
 
 }
