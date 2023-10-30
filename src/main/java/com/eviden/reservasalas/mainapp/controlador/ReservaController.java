@@ -158,4 +158,21 @@ public class ReservaController {
 			throw  new BadRequestException("R-009",e.getMessage());
 		}
 	}
+	
+	@GetMapping(path = "/finduser/{dasuser}")
+	public ResponseEntity<?> buscoReserva(@PathVariable("dasuser") String dasUser){
+		log.info("**[RESERVAS]--- Estamos buscando reservas del usuario: " + dasUser);
+		
+		Usuario usuarioAux = usuarioService.buscoDasUsuario(dasUser)
+				               .orElseThrow(() -> new DataNotFoundException("R-008","Usuario " + dasUser + " no encontrado en BBDD"));
+		
+		List<Reserva> reservas = reservaService.ReservasPorUser(usuarioAux);
+		
+		if(reservas.isEmpty()) {
+			throw new DataNotFoundException("R-010","Usuario " + dasUser + "  SIN reservas");
+		}
+                
+		return new ResponseEntity<List<Reserva>>(reservas, HttpStatus.OK);
+		
+	}
 }

@@ -1,7 +1,7 @@
 package com.eviden.reservasalas.mainapp.modelo.entity;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -67,7 +67,7 @@ public class Usuario implements Serializable {
 	@OneToMany(mappedBy = "usuario")
 	@JsonManagedReference(value = "usuario-reserva")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Set<Reserva> reserves;
+	private List<Reserva> reserves;
 /*
 	@OneToMany(mappedBy = "owner")
 	@JsonManagedReference(value = "owner-alerts")

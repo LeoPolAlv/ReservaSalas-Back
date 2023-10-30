@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -52,6 +54,7 @@ public class Reserva implements Serializable {
 	
 	@Version
 	@Column(name = "regVersion",columnDefinition = "bigint DEFAULT 0", nullable = false)
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private long version;
 /*
 	@OneToMany(mappedBy = "reserved", cascade = CascadeType.ALL)
