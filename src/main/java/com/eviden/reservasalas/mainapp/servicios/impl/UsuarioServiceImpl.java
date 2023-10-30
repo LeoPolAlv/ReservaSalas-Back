@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eviden.reservasalas.mainapp.modelo.DAO.IUsuarioDAO;
+import com.eviden.reservasalas.mainapp.modelo.entity.Reserva;
 import com.eviden.reservasalas.mainapp.modelo.entity.Usuario;
 import com.eviden.reservasalas.mainapp.servicios.IUsuarioService;
 
@@ -58,5 +59,4 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		
 		return usuarioDAO.findById(id);
 	}
-
 }

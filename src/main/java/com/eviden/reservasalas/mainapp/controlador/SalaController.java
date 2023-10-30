@@ -1,8 +1,6 @@
 package com.eviden.reservasalas.mainapp.controlador;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.json.JSONObject;
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eviden.reservasalas.excepciones.exceptions.BadRequestException;
 import com.eviden.reservasalas.excepciones.exceptions.DataNotFoundException;
-import com.eviden.reservasalas.excepciones.exceptions.DatosEntradaException;
 import com.eviden.reservasalas.mainapp.DTO.SalaRequest;
 import com.eviden.reservasalas.mainapp.DTO.SalaRequestPut;
 import com.eviden.reservasalas.mainapp.modelo.entity.Oficina;

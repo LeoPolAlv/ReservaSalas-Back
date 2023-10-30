@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.eviden.reservasalas.mainapp.modelo.DAO.IReservasDAO;
 import com.eviden.reservasalas.mainapp.modelo.entity.Reserva;
+import com.eviden.reservasalas.mainapp.modelo.entity.Usuario;
 import com.eviden.reservasalas.mainapp.servicios.IReservaService;
 
 @Service
@@ -49,5 +50,11 @@ public class ReservaServiceImpl implements IReservaService {
 	public boolean existeReserva(Long id) {
 		
 		return reservaDao.existsById(id);
+	}
+
+	@Override
+	public List<Reserva> ReservasPorUser(Usuario user) {
+		
+		return reservaDao.findReservasByDasUser(user);
 	}
 }
