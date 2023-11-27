@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.eviden.reservasalas.mainapp.modelo.DAO.IItemsMenuDAO;
 import com.eviden.reservasalas.mainapp.modelo.DAO.IUsuarioDAO;
-import com.eviden.reservasalas.mainapp.modelo.entity.Reserva;
+import com.eviden.reservasalas.mainapp.modelo.entity.ItemsMenu;
 import com.eviden.reservasalas.mainapp.modelo.entity.Usuario;
 import com.eviden.reservasalas.mainapp.servicios.IUsuarioService;
 
@@ -17,6 +18,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Autowired
 	IUsuarioDAO usuarioDAO;
+	
+	@Autowired
+	IItemsMenuDAO itemsMenuDAO;
 	
 	
 	@Override
@@ -58,5 +62,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public Optional<Usuario> buscoUserById(Long id) {
 		
 		return usuarioDAO.findById(id);
+	}
+
+	@Override
+	public List<ItemsMenu> menuUsuario(String usuarioDas) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "reservas", uniqueConstraints={@UniqueConstraint(columnNames={ "FK_usuario", "FK_sala", "activa" })},
+@Table(name = "reservas", uniqueConstraints={@UniqueConstraint(columnNames={ "FK_usuario", "FK_sala", "activa", "fechaReserva" })},
                           indexes = {@Index(name = "fechaR_inx" ,columnList="fechaReserva") })
 @AllArgsConstructor
 @NoArgsConstructor

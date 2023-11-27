@@ -19,8 +19,10 @@ import com.eviden.reservasalas.excepciones.exceptions.BadRequestException;
 import com.eviden.reservasalas.excepciones.exceptions.DataNotFoundException;
 import com.eviden.reservasalas.mainapp.DTO.UsuarioReqPut;
 import com.eviden.reservasalas.mainapp.DTO.UsuarioRequest;
+//import com.eviden.reservasalas.mainapp.modelo.entity.ItemsMenu;
 import com.eviden.reservasalas.mainapp.modelo.entity.Oficina;
 import com.eviden.reservasalas.mainapp.modelo.entity.Usuario;
+import com.eviden.reservasalas.mainapp.servicios.IItemsMenuService;
 import com.eviden.reservasalas.mainapp.servicios.IOficinaService;
 import com.eviden.reservasalas.mainapp.servicios.IUsuarioService;
 
@@ -41,6 +43,10 @@ public class UsuarioController {
 	
 	@Autowired
 	IOficinaService oficinaService;
+	
+	@Autowired
+	IItemsMenuService itemsMenuService;
+	
 	
 	@GetMapping(path = "/all")
 	public ResponseEntity<?> buscoPaises() {

@@ -2,12 +2,14 @@ package com.eviden.reservasalas.mainapp.modelo.entity;
 
 import java.io.Serializable;
 import java.util.List;
+//import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+//import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +17,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.JoinTable;
+//import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -80,6 +84,13 @@ public class Usuario implements Serializable {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Oficina userOficina;
 	
+	/*@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "itemsmenu_usuario", 
+	           joinColumns = @JoinColumn(name = "id_usuario"), 
+	           inverseJoinColumns = @JoinColumn(name = "id_item")
+	)
+	private Set<ItemsMenu> items;*/
+	
 	/*
 	 * JPA usa un campo de versión en sus entidades para detectar modificaciones simultáneas en el mismo registro del almacén de datos. 
 	 * Cuando el tiempo de ejecución de JPA detecta un intento de modificar simultáneamente el mismo registro, 
@@ -89,6 +100,7 @@ public class Usuario implements Serializable {
 	@Column(name = "regVersion",columnDefinition = "bigint DEFAULT 0", nullable = false)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private long version;
+		
 	
 	/**
 	 * 

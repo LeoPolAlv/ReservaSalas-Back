@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eviden.reservasalas.excepciones.exceptions.BadRequestException;
@@ -33,6 +35,7 @@ import jakarta.validation.*;
 @RestController()
 @RequestMapping(path = "/reserva")
 @Log4j2
+//@CrossOrigin(origins = "*", methods = { RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT})
 public class ReservaController {
 
 	@Autowired
@@ -74,8 +77,10 @@ public class ReservaController {
 	}
 	
 	@PostMapping(path = "/new")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<?> nuevaReserva(@Valid @RequestBody ReservaRequest reservaRequest){
 		log.info("**[RESERVAS]--- Estamos Creando una nueva reserva");
+		System.out.println("Entrada que me llega: " + reservaRequest);
 		try {
 			//Buscamos datos de la sala que queremos reservar
 			Sala salaReserva = salaService.buscoSaldaId(reservaRequest.getIdSala())

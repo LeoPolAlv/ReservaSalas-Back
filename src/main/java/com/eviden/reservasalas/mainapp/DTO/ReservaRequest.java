@@ -5,6 +5,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +19,14 @@ public class ReservaRequest {
 
 	//Fecha de la reserva
 	@JsonProperty(value = "fecha_reserva")
-	@NotEmpty(message = "No debe traer valor nulo")
+	@NotNull(message = "No debe traer valor nulo")
+	//@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	private Date fechaReserva;
 	
 	//Fecha cuando finaliza la reserva.
-	@NotEmpty(message = "No debe traer valor nulo")
+	@NotNull(message = "No debe traer valor nulo")
 	@JsonProperty(value = "fecha_hasta")
+	//@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	private Date fechaHasta;
 	
 	@NotEmpty(message = "No debe traer valos nulo")
@@ -38,7 +41,7 @@ public class ReservaRequest {
 	@JsonProperty(value = "das_user")
 	private String dasUser;
 	
-	@NotEmpty(message = "No debe traer valos nulo")
+	@NotNull(message = "No debe traer valos nulo")
 	@JsonProperty(value = "id_sala")
 	private Long idSala;
 }
